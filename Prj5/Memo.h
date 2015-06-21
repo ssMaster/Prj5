@@ -1,11 +1,13 @@
 #ifndef MEMO_H
 #define MEMO_H
 
+#include <string.h>
+
 class Memo
 {
 public:
 	// Constructor
-	Memo();
+	Memo(char * initialTime, char * initialTitle);
 
 	// Accessors
 	char * getTime();

@@ -2,7 +2,7 @@
 #define SCHEDULER_H
 
 // Proper include statement(s)
-
+/*
 class Scheduler
 {
 public:
@@ -18,5 +18,5 @@ public:
 
 private:
 	OrdList<Memo, int> memos;
-};
+};*/
 #endif

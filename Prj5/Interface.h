@@ -2,7 +2,7 @@
 #define INTERFACE_H
 
 // Proper include statement(s)
-
+/*
 class Interface
 {
 public:
@@ -19,5 +19,5 @@ private:
 	char command;
 	int finished;
 };
-
+*/
 #endif
