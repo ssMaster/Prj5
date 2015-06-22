@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-template <typename Type>
+template <class Type>
 class LinkedList
 {
 public:

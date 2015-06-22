@@ -2,12 +2,16 @@
 #define INTERFACE_H
 
 // Proper include statement(s)
-/*
+#include <iostream>
+
 class Interface
 {
 public:
 	// Constructor
+	Interface();
+
 	// Destructor
+	~Interface();
 
 	void getCommand();
 	void executeCommand();
@@ -19,5 +23,5 @@ private:
 	char command;
 	int finished;
 };
-*/
+
 #endif

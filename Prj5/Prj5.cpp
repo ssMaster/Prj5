@@ -6,7 +6,10 @@ Due: June 23, 2015
 
 // Driver
 #include "Memo.h"
+#include "Ordlist.cpp"
+#include "Scheduler.h"
 #include <iostream>
+
 
 using namespace std;
 
@@ -19,9 +22,26 @@ int main(){
 
 	int key = memo.getKey();
 	cout << "Memo key: " << key << endl;
+	
+	cout << endl << endl;
 
 	// =================================================== OrdList test
+	Ordlist<Memo, int> memos;
+	
+	memos.insert(memo);
+	
+
+	// =================================================== Scheduler test
+	Scheduler s;
+	//s.readMemos("infile1.txt");
+
+	//s.deleteMemo("12:00");
+	//s.deleteMemo("13:45");
+	//s.deleteMemo("12:50");
 
 
+	// =================================================== Interface test
+
+	
 	return 0;
 }
