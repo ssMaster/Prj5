@@ -5,7 +5,6 @@ Due: June 23, 2015
 */
 
 #include "Ordlist.h"
-//#include "LinkedList.cpp"
 #include <iostream>
 
 using namespace std;
@@ -14,7 +13,7 @@ using namespace std;
 //Default constructor
 template <class Type, class Key>
 Ordlist<Type, Key>::Ordlist(){
-	cout << "In constructor" << endl;
+	//(*this).insert("c", 0);
 }
 
 // Destructor
@@ -29,10 +28,14 @@ If an element that has the same key as the key of the input item already existed
 replaces the existing element with the new element.
 */
 template <class Type, class Key>
-void Ordlist<Type, Key>::insert(Type& item){
+void Ordlist<Type, Key>::insert(Type& item) {
 	cout << "Inserting item..." << endl;
-	
+	LinkedList::insert(item, 0);
 
+	cout << "Empty value: " << (*this).empty() << endl;
+	
+	(*this).remove();
+	cout << "Empty value: " << (*this).empty() << endl;
 
 }
 

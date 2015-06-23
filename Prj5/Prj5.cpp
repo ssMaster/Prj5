@@ -6,7 +6,8 @@ Due: June 23, 2015
 
 // Driver
 #include "Memo.h"
-#include "Ordlist.cpp"
+#include "Ordlist.h"
+#include "LinkedList.h"
 #include "Scheduler.h"
 #include <iostream>
 
@@ -24,7 +25,7 @@ int main(){
 	cout << "Memo key: " << key << endl;
 	
 	cout << endl << endl;
-
+	
 	// =================================================== OrdList test
 	Ordlist<Memo, int> memos;
 	
