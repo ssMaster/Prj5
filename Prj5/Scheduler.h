@@ -3,6 +3,7 @@
 
 // Proper include statement(s)
 #include "Memo.h"
+#include "Ordlist.h"
 
 class Scheduler
 {
@@ -20,6 +21,6 @@ public:
 	void clearMemos();
 
 private:
-	//OrdList<Memo, int> memos;
+	Ordlist<Memo, int> memos;
 };
 #endif
