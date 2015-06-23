@@ -17,10 +17,12 @@ using namespace std;
 int main(){
 	// ================================================== Memo test
 	Memo memo("12:00", "Set to midnight");
-
+	Memo memo2("12:50", "Class begins");
+	
+	
 	cout << "The time is: " << memo.getTime() << endl;
 	cout << "The title is: " << memo.getTitle() << endl;
-
+	
 	int key = memo.getKey();
 	cout << "Memo key: " << key << endl;
 	
@@ -28,17 +30,26 @@ int main(){
 	
 	// =================================================== OrdList test
 	Ordlist<Memo, int> memos;
+	//memos.insert(memo);
+	//memos.insert(memo2);
+	//memos.search(1110);
 	
-	memos.insert(memo);
+	//memos.search(1250);
 	
-
 	// =================================================== Scheduler test
 	Scheduler s;
 	//s.readMemos("infile1.txt");
 
+	s.insertMemo(memo);
+	s.insertMemo(memo2);
+
+	s.displayMemos();
+	
 	//s.deleteMemo("12:00");
 	//s.deleteMemo("13:45");
 	//s.deleteMemo("12:50");
+
+
 
 
 	// =================================================== Interface test

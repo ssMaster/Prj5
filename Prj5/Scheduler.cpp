@@ -5,6 +5,8 @@ Due: June 23, 2015
 */
 
 #include "Scheduler.h"
+#include "Ordlist.h"
+#include "LinkedList.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -25,7 +27,7 @@ Scheduler::~Scheduler(){
 Inserts newMemo into the Ordlist, 'memos'.
 */
 void Scheduler::insertMemo(Memo newMemo){
-
+	memos.insert(newMemo);
 }
 
 void Scheduler::deleteMemo(char * time){
@@ -63,6 +65,7 @@ void Scheduler::deleteMemo(char * time){
 	// Reference getKey() method in the Memo class.
 	// If an appointment is scheduled at the given time, delete the appointment (memo) from the Ordlist.
 	// If there is no schedule at that time, print out a message saying there isn't an appointment at that time.
+
 
 }
 
@@ -117,6 +120,12 @@ Each memo should be displayed in the following format:
 If there is no memo in the Ordlist, print out a message: 'No scheduler for today.'
 */
 void Scheduler::displayMemos(){
+	Memo m;
+	memos.gotoBeginning();
+	do{
+		m = memos.retrieve();
+		cout << m.getTime() << " => " << m.getTitle() << endl;
+	} while (memos.gotoNext());
 
 }
 

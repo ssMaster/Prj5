@@ -9,6 +9,11 @@ Due: June 23, 2015
 
 using namespace std;
 
+Memo::Memo(){
+	strncpy(time, "00:00", 6);
+	strncpy(time, "No schedule for today", 41);
+}
+
 /*
 User defined constructor - creates a new Memo
 */
@@ -20,14 +25,14 @@ Memo::Memo(char * initialTime, char * initialTitle){
 /*
 Accessor method to get the memo time.
 */
-char * Memo::getTime(){
+char* Memo::getTime(){
 	return time;
 }
 
 /*
 Accessor method to get the memo title.
 */
-char * Memo::getTitle(){
+char* Memo::getTitle(){
 	return title;
 }
 
@@ -53,9 +58,12 @@ int Memo::getKey(){
 	int hour;
 	int minute;
 	char * delimit = ":";
+	char temp[6];
+
+	strncpy(temp, time, 6);
 
 	// Tokenize the time string to get the separate hour and minute pieces
-	hour = atoi(strtok(time, delimit));
+	hour = atoi(strtok(temp, delimit));
 	minute = atoi(strtok(NULL, delimit));
 
 	return (hour * 100 + minute);

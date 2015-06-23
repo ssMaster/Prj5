@@ -5,7 +5,7 @@
 #include "LinkedList.cpp"
 
 template <class Type, class Key>
-class Ordlist : LinkedList<Type> // Inheritance list
+class Ordlist : public LinkedList<Type> // Inheritance list
 {
 public:
 	// Constructor
@@ -16,7 +16,7 @@ public:
 
 	void insert(Type& item);
 	//void merge(const OrdList<Type, Key> other_list);
-	//int search(Key search_key);
+	int search(Key search_key);
 };
 
 #endif

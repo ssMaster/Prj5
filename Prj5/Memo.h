@@ -7,6 +7,7 @@ class Memo
 {
 public:
 	// Constructor
+	Memo();
 	Memo(char * initialTime, char * initialTitle);
 
 	// Accessors

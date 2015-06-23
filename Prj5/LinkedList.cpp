@@ -136,13 +136,14 @@ Returns a copy of the cursor pointing element when the list is not empty
 */
 template <class Type>
 Type LinkedList<Type>::retrieve() const{
-	if (empty()){
-		return NULL;
+	/*if (empty()){
+		return "";
 	}
 	else{
 		Type copyElement = cursor->element;
 		return copyElement;
-	}
+	}*/
+	return cursor->element;
 }
 
 /*
