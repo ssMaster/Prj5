@@ -33,7 +33,7 @@ replaces the existing element with the new element.
 */
 template <class Type, class Key>
 void Ordlist<Type, Key>::insert(Type& item) {
-	cout << "Inserting item..." << endl;
+	//cout << "Inserting item..." << endl;
 	Memo m = item;
 
 	int r = search(m.getKey());
@@ -82,11 +82,9 @@ int Ordlist<Type, Key>::search(Key search_key){
 				}
 			}
 
-			cout << "key not found..." << endl;
 			return 0;
 		}
 	}
 
-	cout << endl << "..done." << endl;
 	
 }

@@ -59,13 +59,29 @@ void Scheduler::deleteMemo(char * time){
 	minute = stoi(minutestr);
 	key = hour * 100 + minute;
 
-	cout << "The key to use is: " << key << endl;
+	//cout << "The key to use is: " << key << endl;
 
 	// ======================================================================================================== in progress
 	// Reference getKey() method in the Memo class.
 	// If an appointment is scheduled at the given time, delete the appointment (memo) from the Ordlist.
 	// If there is no schedule at that time, print out a message saying there isn't an appointment at that time.
+	Memo m;
+	memos.gotoBeginning();
 
+	m = memos.retrieve();
+	memos.remove();
+
+	/*do{
+		m = memos.retrieve();
+		if (m.getKey() == key){
+
+			break;
+		}
+	} while (memos.gotoNext());*/
+	
+
+	
+	
 
 }
 
