@@ -7,6 +7,7 @@ Due: June 23, 2015
 #include "Scheduler.h"
 #include "Ordlist.h"
 #include "LinkedList.h"
+#include "Memo.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -20,8 +21,6 @@ Scheduler::Scheduler(){
 Scheduler::~Scheduler(){
 
 }
-
-// =====================
 
 /*
 Inserts newMemo into the Ordlist, 'memos'.
@@ -59,8 +58,6 @@ void Scheduler::deleteMemo(char * time){
 	minute = stoi(minutestr);
 	key = hour * 100 + minute;
 
-	//cout << "The key to use is: " << key << endl;
-
 	// ======================================================================================================== in progress
 	// Reference getKey() method in the Memo class.
 	// If an appointment is scheduled at the given time, delete the appointment (memo) from the Ordlist.
@@ -68,21 +65,14 @@ void Scheduler::deleteMemo(char * time){
 	Memo m;
 	memos.gotoBeginning();
 
-	m = memos.retrieve();
-	memos.remove();
-
-	/*do{
+	do{
 		m = memos.retrieve();
 		if (m.getKey() == key){
-
+			cout << key << " found" << endl;
+			memos.remove();
 			break;
 		}
-	} while (memos.gotoNext());*/
-	
-
-	
-	
-
+	} while (memos.gotoNext());
 }
 
 /*
@@ -126,8 +116,6 @@ void Scheduler::writeMemos(char filename[]){
 
 	outfile.close();
 }
-
-// =====================================================
 
 /*
 Print out all memos in current Ordlist to the standard output.

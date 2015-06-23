@@ -103,7 +103,7 @@ void LinkedList<Type>::insert(const Type &item, int i){
 }
 
 /*
-When a list is not empty, removes the current elemnt from the list.
+When a list is not empty, removes the current element from the list.
 After deleting the cursor pointing element, set the cursor to the following element.
 - If the cursor is pointing to an element that is the only element in the list, you
 should properly set the head and cursor pointer after deleting the node.
@@ -114,15 +114,33 @@ Set the cursor to the head pointing element.
 template <class Type>
 void LinkedList<Type>::remove(){
 	if (!empty()){	// an element can be removed
-		if (cursor == head){	// there is only one node in the list
+		if (cursor == head && head->next == NULL){	// there is only one node in the list
+			//cout << "delete only one" << endl;
+
 			delete(head);
 			head = cursor = NULL;
 		}
+		else if (cursor == head){
+			//cout << "delete at beginning" << endl;
+
+			cursor = cursor->next;
+			head->next = NULL;
+			delete(head);
+			head = cursor;
+		}
 		else if (cursor->next == NULL){		// cursor pointing to the last element in the list
+			//cout << "delete at end" << endl;
+
 			gotoPrior();
 			delete(cursor->next);
 			cursor->next = NULL;
 			cursor = head;
+		}
+		else{
+			//cout << "delete in middle" << endl;
+			gotoPrior();
+			cursor->next = cursor->next->next;
+			//delete(cursor->next);
 		}
 	}
 	else{

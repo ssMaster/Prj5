@@ -43,8 +43,8 @@ int main(){
 	//s.readMemos("infile1.txt");
 	
 	s.insertMemo(memo);
-	s.insertMemo(memo2);
 	s.insertMemo(memo3);
+	s.insertMemo(memo2);
 	
 	s.displayMemos();
 	cout << endl << "=========" << endl << endl;
@@ -53,6 +53,8 @@ int main(){
 
 	s.displayMemos();
 	cout << endl << "=========" << endl << endl;
+
+	cout << "done" << endl;
 
 	//s.deleteMemo("13:45");
 	//s.deleteMemo("12:50");
