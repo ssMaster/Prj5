@@ -28,22 +28,25 @@ void Interface::getCommand(){
 Process the user command.
 */
 void Interface::executeCommand(){
-	cout << endl;
+	//cout << endl;
 
 	Memo memo;
 	char time[6];
-	char title[41];
+	string title;
 	char filename[41];
 
 	switch (command){
 	case '+':
 		cout << "Enter time: ";
 		cin >> time;
-		cout << endl << "Enter Title: ";
-		cin >> title;
+		cout << "Enter Title: ";
+		cin.ignore();
+		getline(cin, title);
 
 		memo.setTime(time);
-		memo.setTitle(title);
+		memo.setTitle((char*)title.c_str());
+		//memo.setTitle(title);
+
 		s.insertMemo(memo);
 
 		break;

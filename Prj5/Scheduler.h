@@ -4,6 +4,12 @@
 // Proper include statement(s)
 #include "Memo.h"
 #include "Ordlist.cpp"
+//#include "Ordlist.h"
+#include "LinkedList.h"
+#include "Memo.h"
+#include <iostream>
+#include <fstream>
+#include <string>
 
 class Scheduler
 {

@@ -5,11 +5,6 @@ Due: June 23, 2015
 */
 
 // Driver
-#include "Memo.h"
-#include "Ordlist.h"
-#include "LinkedList.h"
-#include "Scheduler.h"
-#include <iostream>
 
 #include "Interface.h"
 
@@ -21,6 +16,6 @@ int main(){
 	do{
 		app.getCommand();
 	} while (!app.done());
-	
+	cout << "done" << endl;
 	return 0;
 }

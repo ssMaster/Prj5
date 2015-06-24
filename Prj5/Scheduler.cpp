@@ -5,12 +5,6 @@ Due: June 23, 2015
 */
 
 #include "Scheduler.h"
-#include "Ordlist.h"
-#include "LinkedList.h"
-#include "Memo.h"
-#include <iostream>
-#include <fstream>
-#include <string>
 
 using namespace std;
 
@@ -89,10 +83,7 @@ void Scheduler::readMemos(char filename[]){
 	if (infile.is_open()){
 		while (!infile.eof()){
 			infile.getline(time, 6);
-			//cout << "Time read: " << time << endl;
-
 			infile.getline(title, 41);
-			//cout << "Title read: " << title << endl;
 
 			Memo theMemo(time, title);
 			memos.insert(theMemo);

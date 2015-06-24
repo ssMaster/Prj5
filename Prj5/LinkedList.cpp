@@ -94,10 +94,21 @@ void LinkedList<Type>::insert(const Type &item, int i){
 			cursor = node;
 		}
 		if (i == -1){	// inserts the item immediately before the cursor
-			gotoPrior();
-			node = new ListElement(item, cursor->next);
-			cursor->next = node;
-			cursor = node;
+			if (cursor == head){
+				gotoPrior();
+				node = new ListElement(item, cursor->next);
+				head->next = head;
+				cursor->next = node;
+				cursor = node;
+				//head = cursor;
+			}
+			else{
+				gotoPrior();
+				node = new ListElement(item, cursor->next);
+				cursor->next = node;
+				cursor = node;
+			}
+			
 		}
 	}
 }
