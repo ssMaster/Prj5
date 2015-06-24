@@ -58,7 +58,7 @@ int Ordlist<Type, Key>::search(Key search_key){
 	Memo m;
 
 	if ((*this).empty()){
-		cout << "empty list" << endl;
+		//cout << "empty list" << endl;
 	}
 	else{
 		(*this).gotoBeginning();
@@ -66,7 +66,7 @@ int Ordlist<Type, Key>::search(Key search_key){
 
 		// If head key is greater than input arg search_key...
 		if (m.getKey() > search_key){
-			cout << "m is greater" << endl;
+			//cout << "m is greater" << endl;
 			(*this).gotoBeginning();
 			return -1;
 		}
@@ -77,7 +77,7 @@ int Ordlist<Type, Key>::search(Key search_key){
 				// If an element with the same key exists in the list...
 				if (m.getKey() == search_key){
 
-					cout << "Duplicate found!" << endl;
+					//cout << "Duplicate found!" << endl;
 					return 1;
 				}
 			}

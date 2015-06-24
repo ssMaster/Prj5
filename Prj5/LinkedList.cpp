@@ -140,6 +140,7 @@ void LinkedList<Type>::remove(){
 			//cout << "delete in middle" << endl;
 			gotoPrior();
 			cursor->next = cursor->next->next;
+			cursor = cursor->next;
 			//delete(cursor->next);
 		}
 	}

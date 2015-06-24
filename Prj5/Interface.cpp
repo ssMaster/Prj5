@@ -18,7 +18,7 @@ Interface::~Interface() {}
 Prompts the user for the next command.
 */
 void Interface::getCommand(){
-	cout << "Enter a command: " << endl;
+	cout << "Enter a command: ";
 	cin >> command;
 
 	executeCommand();
@@ -28,29 +28,54 @@ void Interface::getCommand(){
 Process the user command.
 */
 void Interface::executeCommand(){
+	cout << endl;
+
+	Memo memo;
+	char time[6];
+	char title[41];
+	char filename[41];
+
 	switch (command){
 	case '+':
+		cout << "Enter time: ";
+		cin >> time;
+		cout << endl << "Enter Title: ";
+		cin >> title;
+
+		memo.setTime(time);
+		memo.setTitle(title);
+		s.insertMemo(memo);
 
 		break;
 	case '-':
+		cout << "Enter time: ";
+		cin >> time;
+
+		s.deleteMemo(time);
 
 		break;
 	case 'R': case 'r':
-		cout << "Enter File Name: " << endl;
+		cout << "Enter File Name: ";
+		cin >> filename;
+		s.readMemos(filename);
 
 		break;
 	case 'W': case 'w':
-		cout << "Enter File Name: " << endl;
+		cout << "Enter File Name: ";
+		cin >> filename;
+		s.writeMemos(filename);
 
 		break;
 	case 'D': case 'd':
+		s.displayMemos();
 
 		break;
 	case 'M': case 'm':
-		cout << "Enter File Name: " << endl;
+		cout << "Enter File Name: ";
 
 		break;
 	case 'C': case 'c':
+
 
 		break;
 	case 'Q': case 'q':

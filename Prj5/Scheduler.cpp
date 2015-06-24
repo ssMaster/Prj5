@@ -68,7 +68,6 @@ void Scheduler::deleteMemo(char * time){
 	do{
 		m = memos.retrieve();
 		if (m.getKey() == key){
-			cout << key << " found" << endl;
 			memos.remove();
 			break;
 		}
@@ -90,10 +89,13 @@ void Scheduler::readMemos(char filename[]){
 	if (infile.is_open()){
 		while (!infile.eof()){
 			infile.getline(time, 6);
-			cout << "Time read: " << time << endl;
+			//cout << "Time read: " << time << endl;
 
 			infile.getline(title, 41);
-			cout << "Title read: " << title << endl;
+			//cout << "Title read: " << title << endl;
+
+			Memo theMemo(time, title);
+			memos.insert(theMemo);
 		}
 	}
 	else{
@@ -107,13 +109,24 @@ Write all memos in current Ordlist to the given file.
 void Scheduler::writeMemos(char filename[]){
 	// Open the file for writing
 	ofstream outfile;
-	outfile.open(filename, ofstream::out);
+	outfile.open(filename, ofstream::app);
 
 	if (outfile.is_open()){
-		outfile << "Writing to outfile test..." << endl;
-		outfile << "...done." << endl;
+		Memo m;
+
+		if (memos.empty()){
+			outfile << "No schedule for today." << endl;
+			return;
+		}
+
+		memos.gotoBeginning();
+		do{
+			m = memos.retrieve();
+			outfile << m.getTime() << " => " << m.getTitle() << endl;
+		} while (memos.gotoNext());
 	}
 
+	outfile << "\n\n";
 	outfile.close();
 }
 
@@ -125,6 +138,12 @@ If there is no memo in the Ordlist, print out a message: 'No scheduler for today
 */
 void Scheduler::displayMemos(){
 	Memo m;
+
+	if (memos.empty()){
+		cout << "No schedule for today." << endl;
+		return;
+	}
+
 	memos.gotoBeginning();
 	do{
 		m = memos.retrieve();
@@ -136,15 +155,15 @@ void Scheduler::displayMemos(){
 /*
 Reads the memos in the given name file, 'filename'. 
 Merges them into this Ordlist.
-After the oepration, all elements should be maintained in ascending order.
+After the operation, all elements should be maintained in ascending order.
 */
 void Scheduler::mergeMemos(char filename[]){
-
+	readMemos(filename);
 }
 
 /*
-Delete all memos in the Ordlist.
+Delete all memos in the Ordlist. --------- not done
 */
 void Scheduler::clearMemos(){
-
+	memos.clear();
 }

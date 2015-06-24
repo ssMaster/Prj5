@@ -3,6 +3,8 @@
 
 // Proper include statement(s)
 #include <iostream>
+#include "Scheduler.h"
+#include "Memo.h"
 
 class Interface
 {
@@ -19,7 +21,7 @@ public:
 
 private:
 	// Additional required data field(s)
-
+	Scheduler s;
 	char command;
 	int finished;
 };
