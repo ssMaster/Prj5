@@ -156,5 +156,14 @@ void Scheduler::mergeMemos(char filename[]){
 Delete all memos in the Ordlist. --------- not done
 */
 void Scheduler::clearMemos(){
-	memos.clear();
+	Memo m;
+
+	do{
+		memos.gotoBeginning();
+		m = memos.retrieve();
+		deleteMemo(m.getTime());
+	} while (memos.gotoNext());
+	memos.gotoBeginning();
+	m = memos.retrieve();
+	deleteMemo(m.getTime());
 }

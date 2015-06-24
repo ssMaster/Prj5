@@ -75,10 +75,12 @@ void Interface::executeCommand(){
 		break;
 	case 'M': case 'm':
 		cout << "Enter File Name: ";
+		cin >> filename;
+		s.mergeMemos(filename);
 
 		break;
 	case 'C': case 'c':
-
+		s.clearMemos();
 
 		break;
 	case 'Q': case 'q':
